@@ -1,8 +1,8 @@
 package com.bhaskar.controllerTest;
 
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

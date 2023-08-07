@@ -17,7 +17,6 @@ import com.bhaskar.services.RegistrationDelegate;
 
 @RestController
 @RequestMapping("/registration")
-
 public class RegistrationController {
 	
 	@Autowired
@@ -30,13 +29,7 @@ public class RegistrationController {
 	@PostMapping("/save-user")
 	public ResponseEntity<UserRegistrationDBDTO> saveUser(@RequestBody UserRegistrationDBDTO userRegistrationDBDTO)
 	{
-		
-		
-		log.info("userRegistrationDBDTO in controller= "+userRegistrationDBDTO);
-		
-		
-		
-		
+		log.info("userRegistrationDBDTO in controller= "+userRegistrationDBDTO.toString());
 		return new ResponseEntity<>(registrationDelegate.saveUser(userRegistrationDBDTO),HttpStatus.CREATED);
 	}
 

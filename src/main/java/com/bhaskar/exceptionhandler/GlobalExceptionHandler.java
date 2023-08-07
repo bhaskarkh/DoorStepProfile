@@ -2,6 +2,7 @@ package com.bhaskar.exceptionhandler;
 
 import java.net.http.HttpHeaders;
 
+import com.sun.jdi.request.InvalidRequestStateException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -12,7 +13,6 @@ import org.springframework.web.context.request.WebRequest;
 
 import com.bhaskar.dto.ApiErrorResponse;
 
-@ControllerAdvice
 public class GlobalExceptionHandler {
 	
 	private ResponseEntity<ApiErrorResponse> buildResponseEntity(ApiErrorResponse apiErrorResponse) {
@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
 	
 	
 	
-	@ExceptionHandler
+	@ExceptionHandler(HttpMessageNotReadableException.class)
 	protected ResponseEntity<ApiErrorResponse> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,HttpHeaders headers,HttpStatus status,WebRequest request)
 	{
 		String error ="Malformed Json Request";
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
 	
 
 
-	@ExceptionHandler
+	@ExceptionHandler(HttpRequestMethodNotSupportedException.class)
 	protected ResponseEntity<ApiErrorResponse> handleHttpRequestMethodError(HttpRequestMethodNotSupportedException httpRequestMethod)
 	{
 		String error ="Method Not Allowed";
