@@ -2,18 +2,18 @@ package com.bhaskar.controller;
 
 
 
+import com.sun.xml.bind.v2.TODO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.bhaskar.dto.UserRegistrationDBDTO;
 import com.bhaskar.services.RegistrationDelegate;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/registration")
@@ -31,6 +31,13 @@ public class RegistrationController {
 	{
 		log.info("userRegistrationDBDTO in controller= "+userRegistrationDBDTO.toString());
 		return new ResponseEntity<>(registrationDelegate.saveUser(userRegistrationDBDTO),HttpStatus.CREATED);
+	}
+	//TODO
+	// For Testing Purpose only need to remove once testing is done
+	@GetMapping("/get-all-users")
+	public ResponseEntity<List<UserRegistrationDBDTO>> getAllUser()
+	{
+		return new ResponseEntity<>(registrationDelegate.getAllUser(),HttpStatus.ACCEPTED);
 	}
 
 

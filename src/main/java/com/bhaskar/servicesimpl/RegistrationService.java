@@ -7,18 +7,22 @@ import com.bhaskar.dto.UserRegistrationDBDTO;
 import com.bhaskar.repository.RegistrationRepo;
 import com.bhaskar.services.RegistrationDelegate;
 
+import java.util.List;
+
 @Service
 public class RegistrationService implements RegistrationDelegate {
 
-	@Autowired
-	RegistrationRepo registrationRepo;
-	
-	@Override
-	public UserRegistrationDBDTO saveUser(UserRegistrationDBDTO userRegistrationDBDTO) {
-		
-		
+    @Autowired
+    RegistrationRepo registrationRepo;
 
-		return registrationRepo.save(userRegistrationDBDTO);
-	}
+    @Override
+    public UserRegistrationDBDTO saveUser(UserRegistrationDBDTO userRegistrationDBDTO) {
+        return registrationRepo.save(userRegistrationDBDTO);
+    }
+
+    @Override
+    public List<UserRegistrationDBDTO> getAllUser() {
+        return registrationRepo.findAll();
+    }
 
 }
