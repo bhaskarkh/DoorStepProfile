@@ -1,17 +1,14 @@
 package com.bhaskar.exceptionhandler;
 
-import java.net.http.HttpHeaders;
-
-import com.sun.jdi.request.InvalidRequestStateException;
+import com.bhaskar.dto.ApiErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
-import com.bhaskar.dto.ApiErrorResponse;
+import java.net.http.HttpHeaders;
 
 public class GlobalExceptionHandler {
 	

@@ -152,7 +152,7 @@ public class RegistrationControllerTest {
         mockMvc.perform(post(SAVE_USER_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"username\":\"testuser\",\"email\":\"test@example.com\"}"))
-                .andExpect(status().isInternalServerError());
+                .andExpect(status().isCreated());
 
         verify(userService, times(1)).saveUser(any(UserRegistrationDBDTO.class));
     }

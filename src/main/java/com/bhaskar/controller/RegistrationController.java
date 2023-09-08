@@ -1,18 +1,14 @@
 package com.bhaskar.controller;
 
 
-
+import com.bhaskar.dto.UserRegistrationDBDTO;
 import com.bhaskar.servicesimpl.RegistrationService;
-import com.sun.xml.bind.v2.TODO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import com.bhaskar.dto.UserRegistrationDBDTO;
-import com.bhaskar.services.RegistrationDelegate;
 
 import java.util.List;
 
